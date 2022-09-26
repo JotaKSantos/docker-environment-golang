@@ -3,7 +3,7 @@ services:
   app:
     build:
       args:
-        user: jksantos
+        user: ${USER}
         uid: 1000
       context: .
       dockerfile: Dockerfile
@@ -13,6 +13,7 @@ services:
     working_dir: /var/www
     volumes:
       - ../:/var/www
+      - /home/${USER}/.ssh:/home/${USER}/.ssh:ro
     networks:
       - app-network
 
