@@ -10,32 +10,12 @@ services:
     image: jksantos/golang
     container_name: app
     restart: unless-stopped
-    working_dir: /var/www
+    working_dir: /home/${USER}/go
     volumes:
-      - ../:/var/www
+      - ../:/home/jksantos/go
       - /home/${USER}/.ssh:/home/${USER}/.ssh:ro
     networks:
       - app-network
-
-  db:
-    image: mysql:5.7
-    container_name: db
-    restart: unless-stopped
-    command: mysqld --sql_mode=""
-    ports:
-      - "3306:3306"
-    environment:
-      MYSQL_DATABASE: app
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_PASSWORD: root
-      MYSQL_USER: app
-      SERVICE_TAGS: dev
-      SERVICE_NAME: mysql
-    volumes:
-      - ./mysql:/var/lib/mysql
-    networks:
-      - app-network
-
 
 networks:
   app-network:
