@@ -3,17 +3,17 @@ services:
   app:
     build:
       args:
-        user: ${USER}
+        user: vscode
         uid: 1000
       context: .
       dockerfile: Dockerfile
     image: jksantos/golang
     container_name: app
     restart: unless-stopped
-    working_dir: /home/${USER}/go
+    working_dir: /home/vscode/go
     volumes:
-      - ../:/home/jksantos/go
-      - /home/${USER}/.ssh:/home/${USER}/.ssh:ro
+      - ../:/home/vscode/go
+      - /home/${USER}/.ssh:/home/vscode/.ssh:ro
     networks:
       - app-network
 
