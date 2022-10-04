@@ -5,6 +5,7 @@
 /vendor
 /bin/*
 /pkg/*
+/src/*
 .env
 .env.backup
 .phpunit.result.cache

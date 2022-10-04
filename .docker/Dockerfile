@@ -11,6 +11,4 @@ ENV GOPATH=
 RUN groupadd --gid $uid $user \
     && useradd --uid $uid --gid $uid -m $user
 
-# WORKDIR /var/www
-
 USER $user
